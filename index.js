@@ -27,7 +27,7 @@ var g = function xyz() {
 }
 a()
 g()
-xyz() // Error:Uncaught ReferenceError: xyz is not defined 
+    // xyz() // Error:Uncaught ReferenceError: xyz is not defined 
     //xyz is not created in global scope but created as a local variable
 
 
@@ -41,3 +41,22 @@ function abc(params1, params2) {
 // 1 & 5 are known as arguments 
 // arguments are those through  which value are being passed
 abc(1, 5)
+
+
+
+// first class functions
+// the ability to use function as values and passed as  an argument to another function and can
+// be returned from the functions.. this ability is known as first class functions in javascript
+// first class functions is equivalent to first class citizens
+
+const b = function() {
+    return function xyz() {
+
+    }
+}
+
+console.log(b())
+    // const b acts just another variable
+
+
+// arrow function
