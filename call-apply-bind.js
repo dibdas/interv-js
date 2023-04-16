@@ -31,6 +31,6 @@ details.apply(userDetails1, ["india", "west bengal", "cycle"]);
 details.apply(userDetails, ["usa", "ny", "bike"]);
 
 // bind
-// call that function and invoke it later
+// call that function pass the objects and additional arguments  and invoke it later
 let newFun = details.bind(userDetails, "delhi", "india");
 newFun();

@@ -72,3 +72,9 @@ const sorted = employees.sort((c1, c2) => (c1.age > c2.age ? 1 : -1)); // ascend
 console.log(sorted);
 const sorteddesc = employees.sort((c1, c2) => (c1.age < c2.age ? 1 : -1)); // descending
 console.log(sorteddesc);
+
+const age = ["87", "76", "76", "32"];
+const totalAge = employees.reduce(function (total, age) {
+  total += age;
+}, 0);
+console.log(totalAge);
