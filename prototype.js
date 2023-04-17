@@ -42,3 +42,34 @@ console.log(obj5);
 
 const array3 = new Array();
 console.log(array3);
+
+// adding show function to the Array protoptype
+Array.prototype.show = function () {
+  return this;
+};
+const cities = ["kolkata"];
+console.log(cities.show());
+
+// adding arrayToObjectConverter function to the Array protoptype
+Array.prototype.convertToObject = function () {
+  let obj = {};
+  this.forEach((element) => {
+    obj[element] = element;
+  });
+  return obj;
+};
+console.log(cities.convertToObject());
+
+//Myprototype is the constructor
+// making th protopty
+function MyPrototype(name, roll) {
+  this.name = name;
+  this.roll = roll;
+}
+
+// adding object to the prototype
+MyPrototype.prototype = obj;
+
+const myProto = new MyPrototype("priyanka", 8);
+console.log(myProto.getName());
+console.log(myProto.getRoll());
