@@ -23,6 +23,9 @@ obj.clear();
 console.log(obj);
 
 // map
+// uniqueness will also be there in the map
+//
+
 let myMap = new Map([
   ["a1", "ajay"],
   ["a2", "amit"],
