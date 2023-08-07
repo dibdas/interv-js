@@ -1,4 +1,3 @@
-
 /*
   let user = {}
   user.name="john"
@@ -29,74 +28,74 @@
   }
   console.log(myObject["obnoxious property"] )
 */
-  // example one
-const playerOneName = "tim"
-const playerTwoName = "jenn"
-const playerOneMarker = "X"
-const playerTwoMarker = "O"
+// example one
+const playerOneName = "tim";
+const playerTwoName = "jenn";
+const playerOneMarker = "X";
+const playerTwoMarker = "O";
 
 // example two
 const playerOne = {
   name: "tim",
-  marker: "X"
-}
+  marker: "X",
+};
 
 const playerTwo = {
   name: "jenn",
-  marker: "O"
-}
-  
+  marker: "O",
+};
+
 function printName(player) {
-  console.log(player.name)
+  console.log(player.name);
 }
 
-console.log(playerOneName)
-console.log(playerTwoName)
+console.log(playerOneName);
+console.log(playerTwoName);
 
 function Player(name, marker) {
-  this.name = name
-  this.marker = marker
+  this.name = name;
+  this.marker = marker;
 }
 
 // const player = new Player('steve', 'X')
 // console.log(player.name)
 
-function Player(name, marker){
-  this.name =  name
-  this.marker = marker
-  this.sayname = function(){
-    console.log(name)
-  }
-  this.symbol =  function(){
-    console.log(marker)
-  }
+function Player(name, marker) {
+  this.name = name;
+  this.marker = marker;
+  this.sayname = function () {
+    console.log(name);
+  };
+  this.symbol = function () {
+    console.log(marker);
+  };
 }
 
-const player = new Player('adam','O')
-const player1 = new Player('aloo','X')
-player.sayname()
-player.symbol()
-player1.sayname()
-player1.symbol()
+const player = new Player("adam", "O");
+const player1 = new Player("aloo", "X");
+player.sayname();
+player.symbol();
+player1.sayname();
+player1.symbol();
 
-function Book(title,author,pages,read){
-  this.title= title
-  this.pages = pages
-  this.read = read
-  this.author = author
-  this.info =  function(){
-    console.log(title+" "+author+" "+pages+" "+read)
-  }
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.pages = pages;
+  this.read = read;
+  this.author = author;
+  this.info = function () {
+    console.log(title + " " + author + " " + pages + " " + read);
+  };
 }
 
-const book = new Book("jjjj","j.k","13","not yet")
-book.info()
+const book = new Book("jjjj", "j.k", "13", "not yet");
+book.info();
 
-//In JavaScript, objects have a special hidden property [[Prototype]] 
+//In JavaScript, objects have a special hidden property [[Prototype]]
 //(as named in the specification), that is either null or references another object.
 // That object is called “a prototype”:
 
-// When we read a property from object, and it’s missing, JavaScript automatically 
+// When we read a property from object, and it’s missing, JavaScript automatically
 // takes it from the prototype. In programming, this is called “prototypal inheritance”.
 // And soon we’ll study many examples of such inheritance, as well as cooler
 // language features built upon it.
@@ -115,7 +114,7 @@ let rabbit = {
 rabbit.__proto__ = animal;
 */
 
-// Now if we read a property from rabbit, and it’s missing, JavaScript will automatically take it 
+// Now if we read a property from rabbit, and it’s missing, JavaScript will automatically take it
 // from animal.
 /*
 let animal = {
@@ -133,10 +132,10 @@ rabbit.__proto__ = animal; // (*)
 // console.log(rabbit.eats)
 // console.log(rabbit.jumps)
 
-// Here we can say that "animal is the prototype of rabbit" or "rabbit prototypically 
+// Here we can say that "animal is the prototype of rabbit" or "rabbit prototypically
 //inherits from animal".
 
-// So if animal has a lot of useful properties and methods, then they become automatically 
+// So if animal has a lot of useful properties and methods, then they become automatically
 // available in rabbit. Such properties are called “inherited”.
 
 // If we have a method in animal, it can be called on rabbit:
@@ -184,27 +183,27 @@ longEar.walk(); // Animal walk
 console.log(longEar.jumps)
 */
 
-// Now if we read something from longEar, and it’s missing, JavaScript will look for it in rabbit, 
+// Now if we read something from longEar, and it’s missing, JavaScript will look for it in rabbit,
 // and then in animal.
 
 // There are only two limitations:
 
-// The references can’t go in circles. JavaScript will throw an error if we try to assign __proto__ 
+// The references can’t go in circles. JavaScript will throw an error if we try to assign __proto__
 // in a circle.
 // The value of __proto__ can be either an object or null. Other types are ignored.
 
 // __proto__ is a historical getter/setter for [[Prototype]]
 // It’s a common mistake of novice developers not to know the difference between these two.
 
-// Please note that __proto__ is not the same as the internal [[Prototype]] property. 
+// Please note that __proto__ is not the same as the internal [[Prototype]] property.
 // It’s a getter/setter for [[Prototype]]. Later we’ll see situations where it matters,
 // for now let’s just keep it in mind, as we build our understanding of JavaScript language.
 
-// The __proto__ property is a bit outdated. It exists for historical reasons, 
-//modern JavaScript suggests that we should use Object.getPrototypeOf/Object.setPrototypeOf 
+// The __proto__ property is a bit outdated. It exists for historical reasons,
+//modern JavaScript suggests that we should use Object.getPrototypeOf/Object.setPrototypeOf
 // functions instead that get/set the prototype. We’ll also cover these functions later.
 
-// By the specification, __proto__ must only be supported by browsers. In fact though, all 
+// By the specification, __proto__ must only be supported by browsers. In fact though, all
 //environments including server-side support __proto__, so we’re quite safe using it.
 
 // As the __proto__ notation is a bit more intuitively obvious, we use it in the examples.
@@ -237,9 +236,9 @@ let rabbit = {
 rabbit.walk(); // Rabbit! Bounce-bounce!
 */
 
-// If we had other objects, like bird, snake, etc., inheriting from animal, 
+// If we had other objects, like bird, snake, etc., inheriting from animal,
 // they would also gain access to methods of animal. But this in each method call would
-// be the corresponding object, evaluated at the call-time (before dot), not animal. 
+// be the corresponding object, evaluated at the call-time (before dot), not animal.
 // So when we write data into this, it is stored into these objects.
 
 // As a result, methods are shared, but the object state is not.
@@ -263,8 +262,8 @@ for(let prop in rabbit)
 console.log(prop)
 */
 
-// If that’s not what we want, and we’d like to exclude inherited properties, 
-// there’s a built-in method obj.hasOwnProperty(key): it returns true 
+// If that’s not what we want, and we’d like to exclude inherited properties,
+// there’s a built-in method obj.hasOwnProperty(key): it returns true
 // if obj has its own (not inherited) property named key.
 
 // So we can filter out inherited properties (or do something else with them):
@@ -291,29 +290,29 @@ for(let prop in rabbit) {
 }
 */
 
-// Here we have the following inheritance chain: rabbit inherits from animal, 
-// that inherits from Object.prototype (because animal is a literal object {...}, 
+// Here we have the following inheritance chain: rabbit inherits from animal,
+// that inherits from Object.prototype (because animal is a literal object {...},
 // so it’s by default), and then null above it:
 
 // Almost all other key/value-getting methods ignore inherited properties
-// Almost all other key/value-getting methods, such as Object.keys, 
+// Almost all other key/value-getting methods, such as Object.keys,
 // Object.values and so on ignore inherited properties.
 
 //They only operate on the object itself. Properties from the prototype are not taken into account.
 // Summary
 
-// In JavaScript, all objects have a hidden [[Prototype]] property that’s either another object 
+// In JavaScript, all objects have a hidden [[Prototype]] property that’s either another object
 //or null.
-// We can use obj.__proto__ to access it (a historical getter/setter, there are other ways, 
+// We can use obj.__proto__ to access it (a historical getter/setter, there are other ways,
 // to be covered soon).
 // The object referenced by [[Prototype]] is called a “prototype”.
-// If we want to read a property of obj or call a method, and it doesn’t exist, 
+// If we want to read a property of obj or call a method, and it doesn’t exist,
 // then JavaScript tries to find it in the prototype.
-// Write/delete operations act directly on the object, they don’t use the prototype 
+// Write/delete operations act directly on the object, they don’t use the prototype
 // (assuming it’s a data property, not a setter).
 // If we call obj.method(), and the method is taken from the prototype, this still references obj.
 // So methods always work with the current object even if they are inherited.
-// The for..in loop iterates over both its own and its inherited properties. 
+// The for..in loop iterates over both its own and its inherited properties.
 // All other key/value-getting methods only operate on the object itself.
 
 /*
@@ -364,15 +363,15 @@ console.log(pockets.pen)
 console.log(bed.glasses)
 */
 
-// Answer the question: is it faster to get glasses as pockets.glasses or head.glasses? 
+// Answer the question: is it faster to get glasses as pockets.glasses or head.glasses?
 // Benchmark if needed.
 
-// In modern engines, performance-wise, there’s no difference whether we take a property 
-// from an object or its prototype. They remember where the property was found and reuse it 
+// In modern engines, performance-wise, there’s no difference whether we take a property
+// from an object or its prototype. They remember where the property was found and reuse it
 // in the next request.
 
-// For instance, for pockets.glasses they remember where they found glasses (in head), 
-// and next time will search right there. They are also smart enough to update internal caches 
+// For instance, for pockets.glasses they remember where they found glasses (in head),
+// and next time will search right there. They are also smart enough to update internal caches
 // if something changes, so that optimization is safe.
 
 // Where does it write?
@@ -402,52 +401,50 @@ let rabbit = {
 // rabbit.eat();
 //console.log(rabbit.eat())
 
-function dog(name,breed,color){
-  this.name= name
-  this.color = color
-  this.breed = breed
-  this.brark = function(){
-    return "whoof!!"
-  }
+function dog(name, breed, color) {
+  this.name = name;
+  this.color = color;
+  this.breed = breed;
+  this.brark = function () {
+    return "whoof!!";
+  };
 }
-const dog1 = new  dog("daisy","labrador","golden")
-console.log(dog1)
-console.log(dog1.__proto__)
-const dog2 = new dog("allo","glodie","black")
-console.log(dog2)
-
-
+const dog1 = new dog("daisy", "labrador", "golden");
+console.log(dog1);
+console.log(dog1.__proto__);
+const dog2 = new dog("allo", "glodie", "black");
+console.log(dog2);
 
 let user = {
   name: "John",
   surname: "Smith",
 
   set fullName(value) {
-    [this.name, this.surname] = value.split(' ')
+    [this.name, this.surname] = value.split(" ");
   },
 
   get fullName() {
     return `${this.name} ${this.surname}`;
-  }
+  },
 };
 
 let admin = {
   __proto__: user,
-  isAdmin: true
+  isAdmin: true,
 };
 
 // alert(admin.fullName); // John Smith (*)
-console.log(admin.fullName)
+console.log(admin.fullName);
 
 // setter triggers!
 admin.fullName = "Alice Cooper"; // (**)
 
 // alert(admin.fullName); // Alice Cooper, state of admin modified
-console.log(admin.fullName)
-console.log(user.fullName)
+console.log(admin.fullName);
+console.log(user.fullName);
 // alert(user.fullName); // John Smith, state of user protected
-console.log(user.fullName)
-console.log(admin.fullName)
+console.log(user.fullName);
+console.log(admin.fullName);
 
 // Here in the line (*) the property admin.fullName has a getter in the prototype user, so it is called.
 // And in the line (**) the property has a setter in the prototype, so it is called.
@@ -476,61 +473,59 @@ let animal = {
   },
   sleep() {
     this.isSleeping = true;
-  }
+  },
 };
 
 let rabbit = {
   name: "White Rabbit",
-  __proto__: animal
+  __proto__: animal,
 };
 
 // modifies rabbit.isSleeping
 rabbit.sleep();
-animal.sleep()
-
+animal.sleep();
 
 // alert(rabbit.isSleeping); // true
 console.log(rabbit.isSleeping); // true
 console.log(animal.isSleeping);
-console.log(rabbit.sleep()); 
+console.log(rabbit.sleep());
 console.log(animal.sleep());
-// alert(animal.isSleeping); 
-
+// alert(animal.isSleeping);
 
 function Student(name, grade) {
-  this.name = name
-  this.grade = grade
+  this.name = name;
+  this.grade = grade;
 }
 
-Student.prototype.sayName = function() {
-  console.log(this.name)
-}
-Student.prototype.goToProm = function() {
+Student.prototype.sayName = function () {
+  console.log(this.name);
+};
+Student.prototype.goToProm = function () {
   // eh.. go to prom?
-}
+};
 
 // Recommended Method for Prototypal Inheritance
 // So far you have seen several ways of making an object inherit the prototype from another object.
-// At this point in history, the recommended way of setting the prototype of 
+// At this point in history, the recommended way of setting the prototype of
 // an object is Object.create (here is the documentation for that method).
 // Object.create very simply returns a new object with the specified prototype and any additional
 // properties you want to add. For our purposes, you use it like so:
 
 const person = {
-  isHuman:false,
-  printIntroduction: function(){
-    console.log(`My name is ${this.name}, Am I human..? ${this.isHuman}`)
-  }
-}
+  isHuman: false,
+  printIntroduction: function () {
+    console.log(`My name is ${this.name}, Am I human..? ${this.isHuman}`);
+  },
+};
 
-const me = Object.create(person)
-me.name = 'amit'
-me.isHuman = true
-person.name = 'himal'
+const me = Object.create(person);
+me.name = "amit";
+me.isHuman = true;
+person.name = "himal";
 
-console.log(me.printIntroduction())
-console.log(person.printIntroduction())
-console.log(me.printIntroduction())
+console.log(me.printIntroduction());
+console.log(person.printIntroduction());
+console.log(me.printIntroduction());
 
 /*
 function Student(){
@@ -560,68 +555,57 @@ EighthGrader.prototype = Student.prototype
 // Consider one more example:
 */
 
-function Student(){
-
-}
-Student.prototype.sayName = function(){
-  console.log(this.name)
-}
-function Eightgrader(name){
-  this.name = name
-  this.age= 8
+function Student() {}
+Student.prototype.sayName = function () {
+  console.log(this.name);
+};
+function Eightgrader(name) {
+  this.name = name;
+  this.age = 8;
 }
 // dont do this
-Eightgrader.prototype = Student.prototype
+Eightgrader.prototype = Student.prototype;
 
-function  Ninthgrader(name){
-  this.name= name
-  this.age= 9
+function Ninthgrader(name) {
+  this.name = name;
+  this.age = 9;
 }
 // noooo! not again!
-Ninthgrader.prototype = Student.prototype
+Ninthgrader.prototype = Student.prototype;
 
-Ninthgrader.prototype.sayName = function(){console.log("HAAA HAAA")}
-const car = new Ninthgrader("carl")
-car.sayName()
-car
+Ninthgrader.prototype.sayName = function () {
+  console.log("HAAA HAAA");
+};
+const car = new Ninthgrader("carl");
+car.sayName();
+car;
 
-// If we had used Object.create in this example, then we could safely edit the 
+// If we had used Object.create in this example, then we could safely edit the
 // NinthGrader.prototype.sayName function without changing the function for EighthGrader as well.
 
+//coding challenge
+function subsequence(k, arr) {
+  let count = 0;
 
+  for (let i = 0; i <= arr.length - k; i++) {
+    let sum = 0;
+    console.log(i);
 
+    for (let j = i; j < i + k; j++) {
+      console.log(j + "j");
 
-
-
-
-//coding challenge 
-function  subsequence(k,arr){
-
-  let count =0
-  
-  for(let i=0; i <=arr.length-k ; i++){
-    let sum =0
-    console.log(i)
-   
-    for(let j=i;j<i+k;j++ ){
-      console.log(j+"j")
-      
-      sum+=arr[j]
-      console.log(sum+"sum")
+      sum += arr[j];
+      console.log(sum + "sum");
     }
 
-     if(sum%2==0){
-       count++
-     
-     }
-    
-   
+    if (sum % 2 == 0) {
+      count++;
+    }
   }
-  
-  return count
 
+  return count;
 }
-console.log(subsequence(2,[1, -3, 0, 5, 7]))
+console.log(subsequence(2, [1, -3, 0, 5, 7]));
 
 let set = new Set();
 set.add(5);
@@ -629,22 +613,17 @@ set.add("5");
 set.add(5);
 console.log(set.size);
 
-
 console.log(Object.is(+0, -0));
-console.log(Object.is(NaN, NaN)); 
+console.log(Object.is(NaN, NaN));
 console.log(Object.is(1, 1));
 console.log(Object.is(1, "1"));
 
-
-
-function SetOperations(set1, set2) 
-{
-    let OperationOnSet= new Set(set1)
-    for (let i of set2) 
-    {
-        OperationOnSet.delete(i)
-    }
-    return OperationOnSet
+function SetOperations(set1, set2) {
+  let OperationOnSet = new Set(set1);
+  for (let i of set2) {
+    OperationOnSet.delete(i);
+  }
+  return OperationOnSet;
 }
 /*
 const setA = new Set(['red', 'yellow', 'green']);
@@ -657,72 +636,60 @@ console.log(result);
 
 var add = {
   x: 10,
-  sum: function() 
-  {
-      return this.x;
-      
-  }
-  
+  sum: function () {
+    return this.x;
+  },
 };
 
 console.log(add.sum());
 
-
-function hackerearth_func()
-{
-    var hack1 = hack2 = 100 ;
+function hackerearth_func() {
+  var hack1 = (hack2 = 100);
 }
 
 hackerearth_func();
-console.log(typeof hack1 == 'undefined');
-console.log(typeof hack2 !== 'undefined');
+console.log(typeof hack1 == "undefined");
+console.log(typeof hack2 !== "undefined");
 
 //this.abc = "Something";
 //console.log(window.abc);
-for(var hack=0; hack< 6; hack++)
-{
-    setTimeout(() => console.log(hack), 0);
+for (var hack = 0; hack < 6; hack++) {
+  setTimeout(() => console.log(hack), 0);
 }
 
+let text = "hello";
+console.log(text.split("").reverse().join(""));
 
-let text ="hello"
-console.log(text.split('').reverse().join(''))
+let arr = [1, 3, -65, -9];
+console.log(arr.sort());
 
-let arr=[1,3,-65,-9]
-console.log(arr.sort())
-
-let input = {jack:"three",jill:"ui",And:"one"}
-for(let [key] of Object.
-  entries(input)){
-   key.toUpperCase()
- // console.log(input)
-
+let input = { jack: "three", jill: "ui", And: "one" };
+for (let [key] of Object.entries(input)) {
+  key.toUpperCase();
+  // console.log(input)
 }
-console.log(input)
-const new_arr = arr.map((object)=>{
-  console.log(object)
-})
+console.log(input);
+const new_arr = arr.map((object) => {
+  console.log(object);
+});
 
-
-
-function findNumber(arr, k){
-  // Write your code 
-  let found =0
-  for(let i = 0 ;i<arr.length;i++){
-      if(k==arr[i]){
-          console.log("YES")
-          break;
-      }
-      else{
-          console.log("No")
-       break;
-      }
+function findNumber(arr, k) {
+  // Write your code
+  let found = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (k == arr[i]) {
+      console.log("YES");
+      break;
+    } else {
+      console.log("No");
+      break;
+    }
   }
 }
 
-  findNumber(
-    [2,
-    3,
-    4,
-    5,
-    1],5)
+findNumber([2, 3, 4, 5, 1], 5);
+
+var js = (function (v) {
+  return v * v;
+})(10);
+console.log(js);
