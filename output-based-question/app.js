@@ -32,3 +32,52 @@ console.log(c);
     }
     }
     }
+
+
+
+    const a =[1,2,3,4,5]
+console.log(a.filter((i) =>i%2==0).map((i)=>i+1));[3, 5]
+
+
+let a=20;
+{
+let a =1;
+console.log(a)
+}
+console.log(a)
+// Uncaught SyntaxError: Identifier 'a' has already been 
+
+var a=20;
+{
+let a =1;
+console.log(a) //1
+}
+console.log(a) //20
+
+
+{var a=20}
+{
+let a =1;
+console.log(a) //1
+}
+console.log(a) //1
+
+let a=20;
+{
+let a =1;
+console.log(a)//1
+}
+console.log(a) //20
+
+
+{
+    let a =1;
+    console.log(a)
+    }
+    console.log(a) // Uncaught ReferenceError: a is not defined
+
+a()
+const a = () => {
+console.log("a")
+}
+// VM49:1 Uncaught ReferenceError: a is not defined
